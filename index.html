@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时市场分析</title>
+</head>
+<body>
+    <h2 class="text-3xl font-bold text-center mb-8">实时市场分析</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div class="bg-card text-card-foreground rounded-xl border shadow bg-gray-700 border-none">
+            <div class="p-6 pt-0 p-4">
+                <div class="text-gray-400 text-sm mb-1">BTC 价格</div>
+                <div id="btc-price" class="text-xl font-bold mb-1">$46,500</div>
+                <div class="flex items-center text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up w-4 h-4 mr-1">
+                        <path d="m5 12 7-7 7 7"></path>
+                        <path d="M12 19V5"></path>
+                    </svg>+3.2%
+                </div>
+            </div>
+        </div>
+        <div class="bg-card text-card-foreground rounded-xl border shadow bg-gray-700 border-none">
+            <div class="p-6 pt-0 p-4">
+                <div class="text-gray-400 text-sm mb-1">24h 交易量</div>
+                <div id="volume" class="text-xl font-bold mb-1">$28.5B</div>
+                <div class="flex items-center text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up w-4 h-4 mr-1">
+                        <path d="m5 12 7-7 7 7"></path>
+                        <path d="M12 19V5"></path>
+                    </svg>+5.8%
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function generateRandomPrice() {
+            return `$${(Math.random() * 100000).toFixed(2).toLocaleString()}`;
+        }
+
+        function generateRandomVolume() {
+            return `$${(Math.random() * 100).toFixed(1)}B`;
+        }
+
+        function updateData() {
+            document.getElementById('btc-price').textContent = generateRandomPrice();
+            document.getElementById('volume').textContent = generateRandomVolume();
+        }
+
+        setInterval(updateData, 1000); // 每秒更新一次数据
+    </script>
+</body>
+</html>
