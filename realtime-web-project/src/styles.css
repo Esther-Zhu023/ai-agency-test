@@ -1,32 +1,81 @@
+:root {
+  --background-color-light: #f4f4f4;
+  --text-color-light: #333;
+  --container-bg-light: #fff;
+  --container-border-light: #ddd;
+  --container-shadow-light: rgba(0, 0, 0, 0.1);
+  --button-bg-light: #28a745;
+  --button-text-light: white;
+  --button-hover-bg-light: #218838;
+
+  --background-color-dark: #333;
+  --text-color-dark: #f4f4f4;
+  --container-bg-dark: #444;
+  --container-border-dark: #555;
+  --container-shadow-dark: rgba(255, 255, 255, 0.1); /* Lighter shadow for dark background */
+  --button-bg-dark: #37723C; /* A darker green for dark mode */
+  --button-text-dark: #f4f4f4;
+  --button-hover-bg-dark: #2A5A30;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color-light); /* Will be managed by body.dark-mode h1 */
 }
 
 #data-container {
-    background: #fff;
-    border: 1px solid #ddd;
+    background: var(--container-bg-light);
+    border: 1px solid var(--container-border-light);
     border-radius: 5px;
     padding: 15px;
     margin-top: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--container-shadow-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
 .button {
-    background-color: #28a745;
-    color: white;
+    background-color: var(--button-bg-light);
+    color: var(--button-text-light);
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .button:hover {
-    background-color: #218838;
+    background-color: var(--button-hover-bg-light);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark-mode h1 {
+    color: var(--text-color-dark);
+}
+
+body.dark-mode #data-container {
+    background: var(--container-bg-dark);
+    border-color: var(--container-border-dark);
+    box-shadow: 0 2px 5px var(--container-shadow-dark);
+}
+
+body.dark-mode .button {
+    background-color: var(--button-bg-dark);
+    color: var(--button-text-dark);
+}
+
+body.dark-mode .button:hover {
+    background-color: var(--button-hover-bg-dark);
 }
